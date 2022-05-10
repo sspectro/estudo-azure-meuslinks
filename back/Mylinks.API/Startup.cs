@@ -6,13 +6,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MyLinks.Domain.Repository;
+using MyLinks.Repository;
+using MyLinks.Repository.Context;
 
-namespace Mylinks.API
+namespace MyLinks.API
 {
     public class Startup
     {
@@ -26,11 +30,23 @@ namespace Mylinks.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyLinkDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("MyLinkDbConnection"),
+                    x => x.MigrationsAssembly("MyLinks.Repository"));
+            });
 
+            services.AddCors(options => {
+                options.AddPolicy("general", builder => {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+
+            services.AddScoped<ILinkResourceRepository, LinkResourceRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mylinks.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Code FC - My Links", Version = "v1" });
+
             });
         }
 
@@ -40,9 +56,17 @@ namespace Mylinks.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mylinks.API v1"));
             }
+            app.UseCors("general");
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyLinks.API v1");
+                c.RoutePrefix = string.Empty;
+            });
+
+            
 
             app.UseHttpsRedirection();
 
