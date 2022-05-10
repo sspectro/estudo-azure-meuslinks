@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mylinks.API", "Mylinks.API\Mylinks.API.csproj", "{FFE2DEA7-6B1D-460C-AEF8-BD4D806AE7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mylinks.Domain", "Mylinks.Domain\Mylinks.Domain.csproj", "{D1AF8F12-F4A9-4F2E-8CF4-A538DABBFB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mylinks.Repository", "Mylinks.Repository\Mylinks.Repository.csproj", "{327FB281-E642-4954-A20B-B941E998B770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFE2DEA7-6B1D-460C-AEF8-BD4D806AE7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE2DEA7-6B1D-460C-AEF8-BD4D806AE7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE2DEA7-6B1D-460C-AEF8-BD4D806AE7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE2DEA7-6B1D-460C-AEF8-BD4D806AE7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AF8F12-F4A9-4F2E-8CF4-A538DABBFB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AF8F12-F4A9-4F2E-8CF4-A538DABBFB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AF8F12-F4A9-4F2E-8CF4-A538DABBFB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AF8F12-F4A9-4F2E-8CF4-A538DABBFB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327FB281-E642-4954-A20B-B941E998B770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327FB281-E642-4954-A20B-B941E998B770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327FB281-E642-4954-A20B-B941E998B770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327FB281-E642-4954-A20B-B941E998B770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
